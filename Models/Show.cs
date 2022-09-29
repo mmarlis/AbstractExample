@@ -42,7 +42,7 @@ namespace AbstractExample.Models
 
         public override void Read()
         {
-            string filePath = "Shows.csv"; 
+            string filePath = "shows.csv"; 
 
               if (!File.Exists(filePath))
               {

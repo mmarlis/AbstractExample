@@ -33,9 +33,9 @@ namespace AbstractExample.Models
             {
                 Console.WriteLine($"ID: {video.Id}, Title: {video.Title}, Format: {video.Format}, Length: {video.Length}");
                 Console.Write("Regions: ");
-                foreach (var region in Regions)
+                foreach (var region in video.Regions)
                 {
-                    Console.Write($"{Regions} ");
+                    Console.Write($"{region} ");
                 }
 
                 Console.WriteLine();
@@ -45,7 +45,7 @@ namespace AbstractExample.Models
 
         public override void Read()
         {
-            string filePath = "Videos.csv";
+            string filePath = "videos.csv";
 
              if (!File.Exists(filePath))
              {
@@ -62,12 +62,19 @@ namespace AbstractExample.Models
                 {
                     var line = sr.ReadLine();
                     var contents = line.Split(',');
+
+                    //videoId,title,format,length,regions
+                    //1,Lethal Weapon 3,VHS,100,0|2
+
                     var video = new Video();
                     video.Id = Convert.ToInt32(contents[0]);
                     video.Title = contents[1];
-                    //int[] region = new int[regions];
-                    //int[] Regions = contents[2].Split('|'); //What are regions?? ***!!!!!***
-                    //video.Regions = regions;
+                    video.Format = contents[2];
+                    video.Length = Convert.ToInt32(contents[3]);
+
+                    var region = contents[4];
+                    var regions = region.Split('|'); //What are regions?? ***!!!!!***
+                    video.Regions = Array.ConvertAll(regions, x => int.Parse(x));
 
                     _videos.Add(video);
                 }
