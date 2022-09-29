@@ -6,16 +6,20 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<None Remove="movies.csv" />
 		<None Remove="MoviesAbstract.csv" />
 		<None Remove="Shows.csv" />
 		<None Remove="Videos.csv" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<EmbeddedResource Include="Shows.csv">
+		<EmbeddedResource Include="movies.csv">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="shows.csv">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</EmbeddedResource>
-		<EmbeddedResource Include="Videos.csv">
+		<EmbeddedResource Include="videos.csv">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</EmbeddedResource>
 	</ItemGroup>

@@ -43,19 +43,19 @@ namespace AbstractExample
 
             switch (choice)
             {
-                case "1-Movie":
+                case "1":
                     media = new Movie();
                     media.Read();
                     media.Display();
                     break;
                 
-                case "2-Show":
+                case "2":
                     media = new Show();
                     media.Read();
                     media.Display();
                     break;
 
-                case "3-Video":
+                case "3":
                     media = new Video();
                     media.Read();
                     media.Display();
